@@ -10,11 +10,6 @@
         /// <summary>
         /// Устанавливает зависимость
         /// </summary>
-        public abstract void Bind();
-
-        /// <summary>
-        /// Очищает зависимость
-        /// </summary>
-        public abstract void Clear();
+        public abstract void InstallBindings(DIContanier dIContanier);
     }
 }

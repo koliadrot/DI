@@ -6,11 +6,13 @@
     using UnityEngine;
 
     /// <summary>
-    /// Проверяет перед запуском у ключевых скриптов
-    /// порядок инициа-ции перед стартом.
+    /// Устанавливает порядок иниц-ии у
+    /// ключевых сприптов
     /// </summary>
     public class ExecutionOrderCheckerEditor
     {
+        private const string KEY_SAVE = "Execution Order";
+
         /// <summary>
         /// Автовалидация порядка вызовов
         /// </summary>
@@ -22,14 +24,15 @@
             SetExecutionOrder(typeof(DIContanier), ref startOrder);
         }
 
-        /// <summary>
-        /// Автовалидация порядка вызовов с ивентом
-        /// </summary>
-        /// <param name="action"></param>
-        public static void Validate(Action action)
+        [InitializeOnLoadMethod]
+        private static void OnceValidate()
         {
-            Validate();
-            action?.Invoke();
+            if (!PlayerPrefs.HasKey(KEY_SAVE))
+            {
+                Validate();
+                PlayerPrefs.SetString(KEY_SAVE, KEY_SAVE);
+                PlayerPrefs.Save();
+            }
         }
 
         private static void SetExecutionOrder(Type type, ref int order)

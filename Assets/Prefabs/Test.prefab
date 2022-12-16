@@ -132,10 +132,10 @@ RectTransform:
   m_Father: {fileID: 5398475770276466535}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.323, y: 0.46266672}
-  m_AnchorMax: {x: 0.68, y: 0.5293333}
-  m_AnchoredPosition: {x: -0.21800232, y: -0.32119942}
-  m_SizeDelta: {x: -0.43530273, y: 0.64242554}
+  m_AnchorMin: {x: 0.25120264, y: 0.5916112}
+  m_AnchorMax: {x: 0.7532973, y: 0.65866685}
+  m_AnchoredPosition: {x: 1.499939, y: 0}
+  m_SizeDelta: {x: 3.4572754, y: 0.64242554}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5398475770286403691
 CanvasRenderer:
@@ -177,7 +177,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DI is true
+  m_Text: Test Prefab was created by DIInstantiate
 --- !u!114 &5398475770286403685
 MonoBehaviour:
   m_ObjectHideFlags: 0
