@@ -1,8 +1,8 @@
-﻿using DIService;
-using UnityEngine;
-
-namespace Test
+﻿namespace Test
 {
+    using UnityDev.DI;
+    using UnityEngine;
+
     public class TestDIInitializer : MonoBehaviour
     {
         [SerializeField]

@@ -1,4 +1,4 @@
-﻿namespace DIService
+﻿namespace UnityDev.DI
 {
     /// <summary>
     /// Сервис по регистрации/получении зависимостей

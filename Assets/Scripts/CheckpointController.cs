@@ -1,9 +1,9 @@
-﻿using DIService;
-using System;
-using UnityEngine;
-
-namespace Test
+﻿namespace Test
 {
+    using System;
+    using UnityDev.DI;
+    using UnityEngine;
+
     public class CheckpointController : MonoBehaviour, ICheckpointService, IInjectable
     {
         public event Action onCheckpointed = delegate { };
@@ -26,8 +26,7 @@ namespace Test
 
         void IInjectable.Inject()
         {
-            if (timerService != null) return;
-            timerService = Service<ITimerService>.Get();
+            timerService = timerService ?? Service<ITimerService>.Get();
             Debug.Log($"[INJECT] {nameof(ITimerService)} is {timerService != null}");
         }
     }

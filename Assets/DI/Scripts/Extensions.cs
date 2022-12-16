@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using UnityEngine;
-
-namespace DIService
+﻿namespace UnityDev.DI
 {
+    using System.Linq;
+    using UnityEngine;
+
     /// <summary>
     /// Расширения
     /// </summary>
@@ -31,7 +31,11 @@ namespace DIService
 #if UNITY_EDITOR
             Debug.LogError($"[DI] is {contanier != null}");
 #endif
-            if (contanier == null) return null;
+            if (contanier == null)
+            {
+                return null;
+            }
+
             Object instanceObject = Object.Instantiate(prefab);
             contanier.Inject();
             return instanceObject;

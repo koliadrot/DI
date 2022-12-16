@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-
-namespace DIService
+﻿namespace UnityDev.DI
 {
+    using UnityEngine;
+
     /// <summary>
     /// Инсталлер зависимости
     /// </summary>

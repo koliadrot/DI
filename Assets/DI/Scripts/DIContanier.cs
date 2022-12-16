@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-
-namespace DIService
+﻿namespace UnityDev.DI
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using UnityEngine;
+
     /// <summary>
     /// Контейнер зависимостей
     /// </summary>
@@ -47,6 +47,5 @@ namespace DIService
                 }
             }
         }
-
     }
 }
