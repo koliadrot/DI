@@ -6,11 +6,11 @@
     /// Инжекция зависимостей
     /// </summary>
     [AttributeUsage(AttributeTargets.Method)]
-    public class InjectAssetAttribute : Attribute
+    public class InjectAttribute : Attribute
     {
         /// <summary>
         /// Маркер инжекции
         /// </summary>
-        public InjectAssetAttribute() { }
+        public InjectAttribute() { }
     }
 }
