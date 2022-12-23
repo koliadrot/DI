@@ -11,6 +11,15 @@
         [SerializeField]
         private GameObject prefab = default;
 
+        private IFactory factoryService = default;
+
+        [Inject]
+        private void Construct(ITimerService service, IFactory factory)
+        {
+            factoryService = factoryService ?? factory;
+            Debug.Log($"[INJECT] {nameof(IFactory)} is {factoryService != null}");
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.R))
@@ -22,6 +31,6 @@
         /// <summary>
         /// Создает объект через контейнер зависимостей
         /// </summary>
-        public void TestInstiniate() => Extensions.DIInstantiate(prefab);
+        public void TestInstiniate() => factoryService.InstantiateObject(prefab);
     }
 }
