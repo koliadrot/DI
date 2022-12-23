@@ -13,7 +13,7 @@
         private ICheckpointService checkpointService = default;
         private Text text = default;
 
-        [InjectAsset]
+        [Inject]
         private void Construct(ICheckpointService service)
         {
             if (checkpointService == null)

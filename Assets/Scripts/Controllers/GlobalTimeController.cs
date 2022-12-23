@@ -13,7 +13,7 @@
 
         private ICheckpointService checkpointService;
 
-        [InjectAsset]
+        [Inject]
         private void Construct(ICheckpointService service)
         {
             checkpointService = checkpointService ?? service;

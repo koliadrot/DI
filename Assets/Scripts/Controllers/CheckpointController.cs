@@ -13,7 +13,7 @@
 
         private ITimerService timerService;
 
-        [InjectAsset]
+        [Inject]
         private void Construct(ITimerService service)
         {
             timerService = timerService ?? service;

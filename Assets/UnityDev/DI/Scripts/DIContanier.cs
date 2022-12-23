@@ -17,7 +17,7 @@
         [SerializeField]
         private List<AbstractInjectionInstaller> installers = new List<AbstractInjectionInstaller>();
 
-        private Dictionary<Type, Object> poolInstallers = new Dictionary<Type, Object>();
+        private Dictionary<Type, object> poolInstallers = new Dictionary<Type, object>();
 
 
         private void Awake()
@@ -50,11 +50,10 @@
         }
 
         /// <summary>
-        /// Устанавливает зависимость в пуль зависимостей
+        /// Устанавливает зависимость в пул зависимостей
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="objectType"></param>
-        public void Bind<T>(T objectType) where T : Object
+        public void Bind<T>(T objectType) where T : class
         {
             if (!poolInstallers.ContainsKey(objectType.GetType()))
             {
@@ -65,6 +64,28 @@
                 Debug.LogError($"Такой тип {objectType.GetType()} уже присуствует");
             }
         }
+
+        /// <summary>
+        /// Создает префаб с инжекцией
+        /// </summary>
+        /// <param name="prefab">Префаб</param>
+        /// <param name="position">Позиция</param>
+        /// <param name="rotation">Вращение</param>
+        /// <param name="parent">Родитель объекта</param>
+        /// <returns></returns>
+        public T InstantiateObject<T>(T prefab, Vector3 position = default, Quaternion rotation = default, Transform parent = null) where T : Object
+        {
+            T instanceObject = Instantiate(prefab, position, rotation, parent);
+            InjectDependencies();
+            return instanceObject;
+        }
+
+        /// <summary>
+        /// Создает префаб с инжекцией
+        /// </summary>
+        /// <param name="prefab">Префаб</param>
+        /// <param name="parent">Родитель объекта</param>
+        public T InstantiateObject<T>(T prefab, Transform parent) where T : Object => InstantiateObject(prefab, default, default, parent);
 
         /// <summary>
         /// Внедряет зависимости
@@ -84,7 +105,7 @@
             MethodInfo[] allMethods = targetType.GetMethods(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
             foreach (MethodInfo methodInfo in allMethods)
             {
-                if (methodInfo.GetCustomAttribute(typeof(InjectAssetAttribute)) is InjectAssetAttribute)
+                if (methodInfo.GetCustomAttribute(typeof(InjectAttribute)) is InjectAttribute)
                 {
                     ParameterInfo[] parameters = methodInfo.GetParameters();
                     object[] actualVatiables = new object[parameters.Length];
@@ -92,7 +113,7 @@
                     {
                         foreach (Type installerKey in poolInstallers.Keys)
                         {
-                            if (parameters[i].ParameterType.IsAssignableFrom(installerKey) && poolInstallers.TryGetValue(installerKey, out Object installer))
+                            if (parameters[i].ParameterType.IsAssignableFrom(installerKey) && poolInstallers.TryGetValue(installerKey, out object installer))
                             {
                                 actualVatiables[i] = installer;
                             }

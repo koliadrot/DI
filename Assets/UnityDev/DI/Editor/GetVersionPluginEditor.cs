@@ -8,7 +8,7 @@
     /// </summary>
     public class GetVersionPluginEditor
     {
-        private const string CURRENT_VERSION = "1.1.1";
+        private const string CURRENT_VERSION = "1.1.2";
 
         [MenuItem("UnityDev/DI/Version - " + CURRENT_VERSION)]
         public static void GetVersionInfo() => Debug.Log("DI версия - " + CURRENT_VERSION);
