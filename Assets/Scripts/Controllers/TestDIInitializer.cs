@@ -1,5 +1,6 @@
 ﻿namespace Test
 {
+    using System.Linq;
     using UnityDev.DI;
     using UnityEngine;
 
@@ -12,12 +13,15 @@
         private GameObject prefab = default;
 
         private IFactory factoryService = default;
+        private NumberController numberController = default;
 
         [Inject]
-        private void Construct(ITimerService service, IFactory factory)
+        private void Construct(IFactory factory, NumberController[] numberControllers)
         {
+            numberController = numberController ?? numberControllers?.FirstOrDefault(x => x.Id == "2");
             factoryService = factoryService ?? factory;
             Debug.Log($"[INJECT] {nameof(IFactory)} is {factoryService != null}");
+            Debug.Log($"[INJECT] {nameof(NumberController)} is {numberController != null} and number == {numberController.Id}");
         }
 
         private void Update()
