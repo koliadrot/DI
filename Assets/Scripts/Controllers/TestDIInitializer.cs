@@ -10,7 +10,7 @@
     public class TestDIInitializer : MonoBehaviour
     {
         [SerializeField]
-        private GameObject prefab = default;
+        private Component prefab = default;
 
         private IFactory factoryService = default;
         private NumberController numberController = default;
