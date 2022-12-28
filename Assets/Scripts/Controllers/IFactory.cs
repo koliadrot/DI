@@ -7,6 +7,6 @@
     /// </summary>
     public interface IFactory
     {
-        T InstantiateObject<T>(T obj) where T : Object;
+        T InstantiateObject<T>(T obj) where T : Component;
     }
 }

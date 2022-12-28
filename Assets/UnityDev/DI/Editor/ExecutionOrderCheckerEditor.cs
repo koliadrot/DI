@@ -1,4 +1,5 @@
-﻿namespace UnityDev.DI
+﻿#if DI
+namespace UnityDev.DI
 {
     using System;
     using System.Linq;
@@ -51,3 +52,4 @@
         }
     }
 }
+#endif

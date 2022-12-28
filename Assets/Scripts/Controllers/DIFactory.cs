@@ -8,6 +8,6 @@
     /// </summary>
     public class DIFactory : IFactory
     {
-        public T InstantiateObject<T>(T obj) where T : Object => DIContanier.Instance.InstantiateObject(obj);
+        public T InstantiateObject<T>(T obj) where T : Component => DIContanier.Instance.InstantiateObject(obj);
     }
 }

@@ -1,4 +1,5 @@
-﻿namespace UnityDev.DI
+﻿#if DI
+namespace UnityDev.DI
 {
     using UnityEngine;
 
@@ -13,3 +14,4 @@
         public abstract void InstallBindings(DIContanier dIContanier);
     }
 }
+#endif

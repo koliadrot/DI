@@ -1,4 +1,5 @@
-﻿namespace UnityDev.DI
+﻿#if DI
+namespace UnityDev.DI
 {
     using UnityEditor.Build;
     using UnityEditor.Build.Reporting;
@@ -14,3 +15,4 @@
         public void OnPreprocessBuild(BuildReport report) => ExecutionOrderCheckerEditor.Validate();
     }
 }
+#endif

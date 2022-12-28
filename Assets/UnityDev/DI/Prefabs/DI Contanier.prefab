@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3328409895948909682}
   - component: {fileID: 3328409895948909683}
   m_Layer: 0
-  m_Name: 'DI Context Installer '
+  m_Name: DI Contanier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3328409895948909692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93725a8108325234b99be7cf46d63d67, type: 3}
+  m_Script: {fileID: 11500000, guid: 63708da96c2b7f849ac26289fae65297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   installers: []
